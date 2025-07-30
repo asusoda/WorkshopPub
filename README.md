@@ -74,6 +74,19 @@ This app can be deployed to:
 
 Make sure to expose the `/api/two-sum` route and test it with tools like `curl` or Postman.
 
+Deployment on Replit & Testing via PowerShell
+To deploy this microservice on Replit, simply create a new Python Repl, paste the contents of main.py (Flask app), and click Run. Replit will host your app at a temporary public URL (e.g., https://<random-id>.replit.dev/).
+
+To test the /two_sum endpoint using PowerShell, use the following command:
+
+Invoke-RestMethod `
+  -Method POST `
+  -Uri "https://<your-replit-url>/two_sum" `
+  -Headers @{ "Content-Type" = "application/json" } `
+  -Body '{"nums":[2,7,11,15],"target":18}'
+This will return the indices of the two numbers that sum to the target in JSON format (e.g., [1,2]). Make sure to replace the URL with your actual Replit endpoint.
+
+
 ## Project Structure
 
 ```
