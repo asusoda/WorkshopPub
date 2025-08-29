@@ -1,102 +1,77 @@
-# Two Sum API
+LeetCode to Production (Workshop Demo)
 
-This project turns the classic "Two Sum" LeetCode problem into a deployable microservice using Flask. It serves as an educational example for solving algorithmic problems, exposing them via a REST API, and deploying them to a production-ready environment (e.g., Replit, Vercel).
+This project demonstrates how to turn a LeetCode problem into a production-ready microservice using **FastAPI**.
 
-## Problem Statement
+---
 
-Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to `target`.
+## Run Locally
 
-You may assume that each input has exactly one solution, and you may not use the same element twice.
+1. Clone the repository and navigate to the project directory.
 
-## Example
+2. Install dependencies:
+   pip install -r requirements.txt
 
-**Input:**
-```json
+3. Start the server:
+   uvicorn main:app --reload
+
+4. Open http://127.0.0.1:8000/docs to test with Swagger UI.
+
+---
+
+## Example Request
+
+Endpoint:  
+POST /two_sum
+
+Request Body:
 {
   "nums": [2, 7, 11, 15],
   "target": 9
 }
-```
 
-**Output:**
-```json
+Response:
 {
-  "indices": [0, 1]
+  "result": [0, 1]
 }
-```
 
-## API Endpoint
-
-### `POST /api/two-sum`
-
-**Request Body:**
-```json
+If no solution exists:
 {
-  "nums": [int, int, ...],
-  "target": int
+  "error": "No two sum solution found"
 }
-```
 
-**Response:**
-```json
-{
-  "indices": [int, int]
-}
-```
+---
 
-**Error Response:**
-```json
-{
-  "error": "Invalid input"
-}
-```
+## Deploying on Vercel
 
-## Local Development
+1. Push this repo to GitHub.  
+2. Go to https://vercel.com, click New Project, and import your repo.  
+3. Set the Framework Preset = Python.  
+4. Add a vercel.json file to the root of the repo:
+   {
+     "builds": [
+       { "src": "main.py", "use": "@vercel/python" }
+     ],
+     "routes": [
+       { "src": "/(.*)", "dest": "main.py" }
+     ]
+   }
+5. Deploy → test at:  
+   https://<your-vercel-app>.vercel.app/two_sum
 
-```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+---
 
-# Install dependencies
-pip install -r requirements.txt
+## Learning Outcomes
 
-# Run the Flask app
-python app.py
-```
+- Turn a LeetCode problem into a backend microservice.  
+- Learn to design APIs using **FastAPI** + **Pydantic**.  
+- Generate interactive docs with **Swagger UI**.  
+- Deploy a production-ready service using **Vercel**.  
 
-## Deployment
+---
 
-This app can be deployed to:
-- Replit
-- Vercel (using Flask + ASGI wrapper like `asgiref`)
-- Render or Railway
+## Future Improvements
 
-Make sure to expose the `/api/two-sum` route and test it with tools like `curl` or Postman.
-
-Deployment on Replit & Testing via PowerShell
-To deploy this microservice on Replit, simply create a new Python Repl, paste the contents of main.py (Flask app), and click Run. Replit will host your app at a temporary public URL (e.g., https://<random-id>.replit.dev/).
-
-To test the /two_sum endpoint using PowerShell, use the following command:
-
-Invoke-RestMethod `
-  -Method POST `
-  -Uri "https://<your-replit-url>/two_sum" `
-  -Headers @{ "Content-Type" = "application/json" } `
-  -Body '{"nums":[2,7,11,15],"target":18}'
-This will return the indices of the two numbers that sum to the target in JSON format (e.g., [1,2]). Make sure to replace the URL with your actual Replit endpoint.
-
-
-## Project Structure
-
-```
-two_sum_api/
-├── app.py
-├── requirements.txt
-├── README.md
-└── venv/ (virtual environment)
-```
-
-## License
-
-This project is provided for educational purposes and does not carry any official license. You may adapt and extend it for teaching, demo, or personal use.
+- Add authentication via tokens.  
+- Deploy with Docker + Kubernetes.  
+- Expand beyond *Two Sum* → more LeetCode problems.  
+- Use as a **resume project** on GitHub + LinkedIn.  
