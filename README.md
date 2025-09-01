@@ -21,13 +21,16 @@ This project demonstrates how to turn a LeetCode problem into a production-ready
 ## Example Request
 
 Endpoint:  
+
 `POST /two_sum`
 
 Request Body:
+```
 {
   "nums": [2, 7, 11, 15],
   "target": 9
 }
+```
 
 Response:
 {
