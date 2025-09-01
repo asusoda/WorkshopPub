@@ -63,7 +63,7 @@ If no solution exists:
      ]
    }
 5. Deploy → test at:  
-   https://`<your-vercel-app>`.vercel.app/two_sum
+   https://`<`your-vercel-app`>`.vercel.app/two_sum
 
 ---
 
