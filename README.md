@@ -1,4 +1,4 @@
-LeetCode to Production (Workshop Demo)
+# LeetCode to Production (Workshop Demo)
 
 This project demonstrates how to turn a LeetCode problem into a production-ready microservice using **FastAPI**.
 
@@ -9,10 +9,10 @@ This project demonstrates how to turn a LeetCode problem into a production-ready
 1. Clone the repository and navigate to the project directory.
 
 2. Install dependencies:
-   pip install -r requirements.txt
+   `pip install -r requirements.txt`
 
 3. Start the server:
-   uvicorn main:app --reload
+   `uvicorn main:app --reload`
 
 4. Open http://127.0.0.1:8000/docs to test with Swagger UI.
 
@@ -21,7 +21,7 @@ This project demonstrates how to turn a LeetCode problem into a production-ready
 ## Example Request
 
 Endpoint:  
-POST /two_sum
+`POST /two_sum`
 
 Request Body:
 {
