@@ -34,6 +34,8 @@ Response:
   "result": [0, 1]
 }
 
+API ENDPOINT:
+The function returning the result!
 If no solution exists:
 {
   "error": "No two sum solution found"
