@@ -33,9 +33,11 @@ Request Body:
 ```
 
 Response:
+```
 {
   "result": [0, 1]
 }
+```
 
 API ENDPOINT:
 The function returning the result!
@@ -61,7 +63,7 @@ If no solution exists:
      ]
    }
 5. Deploy → test at:  
-   https://<your-vercel-app>.vercel.app/two_sum
+   https://`<`your-vercel-app`>`.vercel.app/two_sum
 
 ---
 
