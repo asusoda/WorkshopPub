@@ -60,6 +60,6 @@ def two_sum(req: TwoSumRequest):
     for i, num in enumerate(req.nums):
         complement = req.target - num
         if complement in seen:
-            return [seen[complement], i]
+            return {'result' : [seen[complement], i]}
         seen[num] = i
     # return {"error": "No two sum solution found"}
