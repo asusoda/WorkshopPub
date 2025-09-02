@@ -1,6 +1,6 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import List, Optional
+from fastapi import FastAPI         # Decorators @app.post, @app.get
+from pydantic import BaseModel      # Data Schema request and response validation
+from typing import List, Optional   # Type hints for lists and optional values
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -37,23 +37,24 @@ app = FastAPI(
 # Example when a solution exists:
 
 # {
-#   "result":
-#   "error":
-# } 
+#   "result": [0, 1],
+#   "error": null
+# }
 
 # class TwoSumResponse(BaseModel):
 #     result: 
-#     error:
+#     error: 
 
 
 # FastAPI route handler / endpoint function
 
 # @app.post("/two_sum", response_model=TwoSumResponse)
+
 # Whenever someone sends a POST request to the path /two_sum, run the function below
 
 # def two_sum(req: TwoSumRequest):
 #     """Solve the Two Sum problem as an API endpoint"""
 
-    # Add your LeetCode Logic in here!
+    # # Add your LeetCode Logic in here!
     
     # return {"error": "No two sum solution found"}
