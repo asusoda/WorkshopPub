@@ -25,11 +25,9 @@ app = FastAPI(
 #   "target": "hello"
 # }
 
-# class TwoSumRequest(BaseModel):
-#     nums:
-#     target:
-
-
+class TwoSumRequest(BaseModel):
+    nums: List[int]
+    target: int 
 
 # Define response schema: 
 # It defines the shape of the data your API will return
@@ -41,20 +39,27 @@ app = FastAPI(
 #   "error": null
 # }
 
-# class TwoSumResponse(BaseModel):
-#     result: 
-#     error: 
+class TwoSumResponse(BaseModel):
+    result: List[int]
+    error: str
 
 
 # FastAPI route handler / endpoint function
 
-# @app.post("/two_sum", response_model=TwoSumResponse)
+@app.post("/two_sum", response_model=TwoSumResponse)
 
 # Whenever someone sends a POST request to the path /two_sum, run the function below
 
-# def two_sum(req: TwoSumRequest):
-#     """Solve the Two Sum problem as an API endpoint"""
-
-    # # Add your LeetCode Logic in here!
-    
-    # return {"error": "No two sum solution found"}
+def two_sum(req: TwoSumRequest):
+    """Solve the Two Sum problem as an API endpoint"""
+    seen = {}
+    for i in range(len(req.nums)):
+        remainder = req.target - req.nums[i]
+        if remainder in seen:
+            return {
+                "result": [seen[remainder], i],
+                "error" : ""
+            }
+        seen[req.nums[i]] = i
+        
+    return {"error": "No two sum solution found"}
